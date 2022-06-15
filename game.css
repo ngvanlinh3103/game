@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.btnButton{
+    align-items: center;
+    border: 1px solid;
+    padding: 10em 10em 0 10em ;
+}
+.btn{
+    border-radius: 10px;
+    background: blue;
+    padding: 15px;
+    margin: 15px;
+}
+.btn1{
+    border-radius: 10px;
+    background: red;
+    padding: 15px;
+    margin: 15px;
+}
