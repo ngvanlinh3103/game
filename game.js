@@ -1,30 +1,14 @@
 var so_pt=prompt('nhap gia tri');
+var html_game = "";
+var main_game = document.getElementsByClassName('game');
+
 //in ra mang
-for (var i=0;i<so_pt;i++){
-    for (var j=0; j<so_pt;j++){
-        let n=i.j;
+for (let i=0;i<so_pt;i++){
+    for (let j=0; j<so_pt;j++){
         document.write('<button class="btn" id="'+i,j+'"></button>');
     }
     document.write('<br>');
 }
-/*function remove(a,b) {
-    let c = a.toString() + b.toString();
-    var d = [];
-    for (var i = (a - 1); i <= (a + 1); i++) {
-        if (i >= 0) {
-            for (var j = (b - 1); j <= (b + 1); j++) {
-                if (j >= 0) {
-                    let x = "";
-                    x = i.toString() + j.toString();
-                    if (x != c) {
-                        d.push(x);
-                    }
-                }
-            }
-        }
-    }
-    return d;
-}*/
 
 // tim id ben canh id dc click
 function change(ab) {
@@ -51,37 +35,6 @@ function change(ab) {
     //console.log('phan tu nhận khi click:'+d);
     return d;
 }
-
-//su kien khi click
-// var numbers=document.getElementsByClassName('btn');
-// for (var i = 0; i <numbers.length; i++) {
-//     numbers[i].addEventListener('click',function(){
-//         var n=this.id;
-//         var change1=change(n);
-//         for (var j=0;j< change1.length;j++){
-//             if(document.getElementById(change1[j]).classList.length > 1){
-//                 document.getElementById(change1[j]).classList.remove('btn1');
-//             }
-//             else {
-//                 document.getElementById(change1[j]).classList.add('btn1');
-//             }
-//         }
-//
-//         setTimeout(function(){
-//             if(checkWin()) alert("Win");
-//             },100);
-//     });
-// }
-//
-// function checkWin(){
-//     var list_el = document.getElementsByClassName("btn");
-//     for(var i =0; i<list_el.length; i++){
-//         if(list_el[i].classList.length < 2){
-//             return false;
-//         }
-//     }
-//     return true;
-// }
 
 function check(){
     var ele=document.getElementsByClassName('btn');
