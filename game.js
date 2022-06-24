@@ -1,6 +1,10 @@
-var so_pt = prompt('nhap gia tri');
 var html_game = "";
 var main_game = document.getElementById('game');
+
+//nhap phan tu
+do {
+    var so_pt = prompt('nhap gia tri tu 2 den 9');
+} while (so_pt < 2 || so_pt > 9)
 
 //in ra mang
 for (let i = 0; i < so_pt; i++) {
@@ -18,6 +22,7 @@ function change(ab) {
     let f = ad.match(/[0-9]$/)[0];
     let a = Number(e);
     let b = Number(f);
+
     /*console.log('a:'+a+' b:'+b);*/
     var d = [];
     for (var i = (a - 1); i <= (a + 1); i++) {
@@ -33,11 +38,12 @@ function change(ab) {
             }
         }
     }
-    //console.log('phan tu nhận khi click:'+d);
+
     return d;
 }
 
-function check() {
+//check win khi cung màu
+function checkwin() {
     var ele = document.getElementsByClassName('btn');
     for (let i = 0; i < ele.length; i++) {
         if (ele[i].classList.length < 2) {
@@ -47,7 +53,9 @@ function check() {
     return true;
 }
 
+//chuyen màu khi click
 var elements = document.getElementsByClassName('btn');
+
 for (let i = 0; i < elements.length; i++) {
     elements[i].addEventListener('click', function () {
         //console.log(change(elements[i].id));
@@ -63,7 +71,7 @@ for (let i = 0; i < elements.length; i++) {
 
         }
         setTimeout(function () {
-            if (check()) {
+            if (checkwin()) {
                 if (confirm('win :)) thời gian: ' + document.getElementById('seconds').innerText + ':' + document.getElementById('tens').innerText)) {
                     location.reload();
                 }
@@ -79,8 +87,8 @@ window.onload = function () {
     let ten = 0;
     var appendTens = document.getElementById('tens');
     let appendSeconds = document.getElementById('seconds');
-    let btn_start = document.getElementById('start');
     let interval;
+    let minute = 0;
     interval = setInterval(star, 10);
 
     function star() {
@@ -94,13 +102,16 @@ window.onload = function () {
         if (ten > 99) {
             second++;
             ten = 0;
-            appendSeconds.innerHTML = "0" + second;
+            appendSeconds.innerHTML = minute + ':0' + second;
             appendTens.innerHTML = "0" + ten;
         }
         if (second > 9) {
-            appendSeconds.innerHTML = second;
+            appendSeconds.innerHTML = minute + ':' + second;
         }
         if (second > 59) {
+            minute++;
+            second = 0;
+            appendSeconds.innerHTML = minute + ":0" + second;
 
         }
     }
